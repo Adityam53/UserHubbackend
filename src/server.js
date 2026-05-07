@@ -1,19 +1,21 @@
 require("dotenv").config();
+
 const express = require("express");
 const cors = require("cors");
+
 const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
-
-const corsOptions = {
-  origin: ["http://localhost:5173", "https://YOUR_FRONTEND_URL.vercel.app"],
-  credentials: true,
-};
 
 const app = express();
 
 connectDB();
 
-app.use(cors(corsOptions));
+app.use(
+  cors({
+    origin: "*",
+  }),
+);
+
 app.use(express.json());
 
 app.use("/api/users", userRoutes);
