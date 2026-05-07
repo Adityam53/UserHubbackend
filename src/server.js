@@ -5,9 +5,8 @@ const connectDB = require("./config/db");
 const userRoutes = require("./routes/userRoutes");
 
 const corsOptions = {
-  origin: "*",
+  origin: ["http://localhost:5173", "https://YOUR_FRONTEND_URL.vercel.app"],
   credentials: true,
-  optionSuccessStatus: 200,
 };
 
 const app = express();
